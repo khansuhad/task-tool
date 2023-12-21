@@ -21,7 +21,6 @@ const Footer = () => {
             <hr />
             <div className='mt-10 flex flex-col md:flex-row justify-center gap-8'>
             <p className='text-center hover:text-slate-400'>Copyright © 2023 - All right reserved by <br /> <Link to="/" className='font-bold'>Task Tool</Link></p>
-             
             </div>
         </div>
     );
