@@ -40,7 +40,7 @@ const Navbar = () => {
             { isMenuOpen === false ? <HiMenu /> : <RxCross1/> }
           </button>
           <div className="text-white font-bold text-lg cursor-pointer">
-            <img src='https://i.postimg.cc/NMxGW3Xr/Whats-App-Image-2023-12-20-at-10-06-27-PM.jpg' alt="" className=" w-40 lg:w-60" />
+            <img src='https://i.postimg.cc/NMxGW3Xr/Whats-App-Image-2023-12-20-at-10-06-27-PM.jpg'  className=" w-40 lg:w-60" />
           </div>
     </div>
           
