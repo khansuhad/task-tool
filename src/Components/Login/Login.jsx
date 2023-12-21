@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../AuthProvider/AuthProvider";
-import { ToastContainer ,toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+
+import Swal from "sweetalert2";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 
 const Login = () => {
@@ -17,32 +17,26 @@ const Login = () => {
 
         loginUser(email , password)
         .then(res => {
-            toast.success("profile updated successfully", {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-                });
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Profile updated successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
                 e.target.reset();
             console.log(res.user)
             navigate('/');
            
         })
         .catch(error => {
-            toast.error("email or password doesn't match", {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-                });
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "email or password doesn't match",
+                showConfirmButton: false,
+                timer: 1500
+              });
                 console.log(error.message)
         })
 
@@ -50,30 +44,24 @@ const Login = () => {
     const handleGoogle = () => {
         googleLogin()
         .then(res => {
-            toast.success("profile updated successfully", {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-                });
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Profile updated successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
             console.log(res.user)
             navigate('/');
         })
         .catch(error => {
-            toast.error(error.message, {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-                });
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: `${error.message}`,
+                showConfirmButton: false,
+                timer: 1500
+              });
                 console.log(error.message)
                 return
         })
@@ -99,7 +87,6 @@ const Login = () => {
         <h1 className="my-5">Do not have an account ? <span className="underline text-blue-600"><Link to='/register'>Create an account</Link></span></h1>
       </div>
     </div>
-    <ToastContainer></ToastContainer>
         </div>
     );
 };
