@@ -11,6 +11,9 @@ import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import Dashboard from './Components/Dashboard/Dashboard';
+import DashboardImg from './Components/Dashboard/DashboardImg';
+import CreateNewTasks from './Components/Dashboard/CreateNewTasks/CreateNewTasks';
+import SeePrevioustaks from './Components/Dashboard/SeePreviousTasks/SeePrevioustaks';
 
 const router = createBrowserRouter([
   {
@@ -25,7 +28,22 @@ const router = createBrowserRouter([
       },
       {
         path:'/dashboard',
-        element:<Dashboard/>
+        element:<Dashboard/>,
+        children:
+        [
+          {
+            path:'/dashboard',
+            element:<DashboardImg/>
+          },
+          {
+            path:"/dashboard/createnewtasks",
+            element:<CreateNewTasks/>
+          },
+          {
+            path:"/dashboard/seeprevioustasks",
+            element:<SeePrevioustaks/>
+          }
+        ]
       }
     ]
   },
