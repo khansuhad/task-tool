@@ -43,8 +43,6 @@ const Navbar = () => {
             <img src='https://i.postimg.cc/NMxGW3Xr/Whats-App-Image-2023-12-20-at-10-06-27-PM.jpg'  className=" w-40 lg:w-60" />
           </div>
     </div>
-          
-
           <div className="lg:flex items-center gap-3 hidden text-body font-medium">
             <NavLink 
               to="/"
