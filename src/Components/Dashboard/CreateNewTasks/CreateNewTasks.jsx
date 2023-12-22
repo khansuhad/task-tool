@@ -52,7 +52,7 @@ const CreateNewTasks = () => {
             <select  {...register("priority", { required: true })} id="dropdown" name="dropdown" className=" w-full py-2 border rounded font-medium outline-none px-3 " >
                     
                     <option value="Low">Low</option>
-                    <option value="Medium">Medium</option>
+                    <option value="Moderate">Moderate</option>
                     <option value="High">High</option>
    </select>
                     {errors.priority && <h1 className=" p-2 text-red-500">This field is required*</h1>}

@@ -7,7 +7,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
     const navigate = useNavigate();
-    const {loginUser  , googleLogin} = useContext(AuthContext);
+    const {loginUser  , googleLogin , githubLogin} = useContext(AuthContext);
     
     const handleLogin = (e) => {
         e.preventDefault();
@@ -66,14 +66,40 @@ const Login = () => {
                 return
         })
     }
+    const handleGithub = () => {
+        githubLogin()
+        .then(res => {
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Profile updated successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
+            console.log(res.user)
+            navigate('/');
+        })
+        .catch(error => {
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: `${error.message}`,
+                showConfirmButton: false,
+                timer: 1500
+              });
+                console.log(error.message)
+                return
+        })
+    }
     return (
         <div>
               <div className="bg-gray-200 flex justify-center  lg:max-h-screen py-10 lg:p-56 w-screen ">
       <div className=" border-t-8 rounded border-indigo-600 bg-white p-12 shadow-2xl w-96 h-1/2 ">
         <h1 className="font-bold text-center block text-2xl">Log In</h1>
 
-        <div className="flex justify-center my-5">
+        <div className="flex justify-center gap-5 my-5">
             <button className="btn px-10" onClick={handleGoogle}>Google</button>
+            <button className="btn px-10" onClick={handleGithub}>Github</button>
             </div>
         <div className="grid grid-cols-3 items-center justify-center">
         <hr /><h1 className="text-center">OR</h1><hr />
