@@ -9,10 +9,8 @@ import Swal from 'sweetalert2';
 import useTask from "../../../hooks/useTasks";
 
 const SeePrevioustaks = () => {
-
-
     const {tasks,refetch} = useTask();
-    console.log(tasks);
+    // console.log(tasks);
     const axiosPublic = useAxiosPublic();
     const [toDo , setToDo] = useState([])
     const [inProgress , setInProgress] = useState([])
@@ -45,11 +43,8 @@ axiosPublic.delete(`/newtasks/${id}`)
 
 }
 const handleInProgress = (id) => {
-    const thisTask = tasks.find(item => item._id === id)
-    console.log(thisTask);
-    const {title , description , priority , email,date} = thisTask ;
     const  status = 'inprogress'
-    axiosPublic.patch(`/newtasks/${id}` , {title, description , priority , email, date ,status})
+    axiosPublic.patch(`/newtasks/status/${id}` ,{status})
     .then(res => {
         Swal.fire({
             position: "top-end",
@@ -63,11 +58,8 @@ const handleInProgress = (id) => {
     })
 }
 const handleCompleted = (id) => {
-    const thisTask = tasks.find(item => item._id === id)
-    console.log(thisTask);
-    const {title , description , priority , email,date} = thisTask ;
     const  status = 'completed'
-    axiosPublic.patch(`/newtasks/${id}` , {title, description , priority , email, date ,status})
+    axiosPublic.patch(`/newtasks/status/${id}` , {status})
     .then(res => {
         Swal.fire({
             position: "top-end",

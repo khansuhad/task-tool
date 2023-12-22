@@ -11,7 +11,7 @@ const useTask  = () => {
         queryKey:[user?.email,'tasks'],
         queryFn: async () => {
             const res = await axiosPublic.get(`/newtask?email=${user?.email}`)
-            console.log(res?.data);
+            // console.log(res?.data);
             return res?.data
         }
     })  

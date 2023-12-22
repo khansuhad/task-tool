@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import useAxiosPublic from "../../../hooks/AxiosPublic";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
@@ -23,13 +23,12 @@ const TaskUpdate = () => {
     const {
         register,
         handleSubmit,
-      
+      control,
         formState: { errors },
       } = useForm();
       const onSubmit = (data) => {
         console.log(data);
-        const status = form.status ;
-        AxiosPublic.patch(`/newtasks/${params.id}`, {...data, status })
+        AxiosPublic.patch(`/newtasks/${params.id}`, data)
         .then(res => {
             console.log(res?.data);
            if(res?.data?.matchedCount || res?.data?.modifiedCount){
@@ -67,12 +66,19 @@ const TaskUpdate = () => {
             </div>
             <div className="flex flex-col  gap-5  mt-5">
             <div>
-            <select  defaultValue={form.priority}   {...register("priority", { required: true })} id="dropdown" name="dropdown" className=" w-full py-2 border rounded font-medium outline-none px-3 " >
-                    
-                    <option value="Low">Low</option>
-                    <option value="Moderate">Moderate</option>
-                    <option value="High">High</option>
-   </select>
+            <Controller
+        name="priority"
+        control={control}
+    
+        render={({ field }) => (
+          <select {...field} className="w-full py-2 border rounded font-medium outline-none px-3">
+            {/* Use the option tags for different options */}
+            <option value="Low">Low</option>
+            <option value="Moderate">Moderate</option>
+            <option value="High">High</option>
+          </select>
+        )}
+      />
                     {errors.priority && <h1 className=" p-2 text-red-500">This field is required*</h1>}
                    </div>
             </div>
