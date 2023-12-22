@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 const CreateNewTasks = () => {
     const {user} = useContext(AuthContext)
     const email = user?.email ;
+    const status = 'todo' ;
     console.log(email);
     const AxiosPublic = useAxiosPublic();
     const {
@@ -20,7 +21,7 @@ const CreateNewTasks = () => {
       } = useForm();
       const onSubmit = (data) => {
         console.log("clicked");
-        AxiosPublic.post("/newtask", {...data , email})
+        AxiosPublic.post("/newtask", {...data , email, status})
         .then(res => {
             console.log(res?.data);
            if(res?.data?.insertedId){

@@ -54,7 +54,7 @@ const Navbar = () => {
             Dashboard
             </NavLink>
             <NavLink  to="/feedback" className="block  hover:text-gray-400 py-2 px-4 cursor-pointer">
-           FeedBack
+           Feedback
             </NavLink>
          
       
@@ -109,6 +109,9 @@ const Navbar = () => {
             </NavLink>
             <NavLink  to="/dashboard" className="block  hover:text-gray-400 py-2 px-4 cursor-pointer">
             Dashboard
+            </NavLink>
+            <NavLink  to="/feedback" className="block  hover:text-gray-400 py-2 px-4 cursor-pointer">
+            Feedback
             </NavLink>
           </div>
         )}

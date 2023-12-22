@@ -2,6 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+const queryClient = new QueryClient()
+import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
@@ -15,8 +20,6 @@ import DashboardImg from './Components/Dashboard/DashboardImg';
 import CreateNewTasks from './Components/Dashboard/CreateNewTasks/CreateNewTasks';
 import SeePrevioustaks from './Components/Dashboard/SeePreviousTasks/SeePrevioustaks';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
-import App from './App';
-import TodoList from './Components/Dashboard/SeePreviousTasks/Two/ToDoList';
 import TaskUpdate from './Components/Dashboard/SeePreviousTasks/TaskUpdate';
 import FeedBack from './Components/FeedBack/FeedBack';
 import CreateFeedback from './Components/FeedBack/CreateFeedback';
@@ -78,8 +81,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-  <AuthProvider>  
+   <AuthProvider>    
+    <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
+    </QueryClientProvider> 
 </AuthProvider>
   </React.StrictMode>,
 )

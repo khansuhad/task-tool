@@ -22,7 +22,7 @@ const FeedBack = () => {
             </div>
             <div className="py-20">
                 {
-                    feedback?.map(feedback => <div key={feedback?._id} className="w-[80%] mx-auto">
+                  feedback &&  feedback?.map(feedback => <div key={feedback?._id} className="w-[80%] mx-auto">
                             <div className="flex gap-3 items-center ">
                                 <div className="w-16 h-16">
                                     <img src={feedback?.photo} alt="" className="rounded-full" />
@@ -37,6 +37,9 @@ const FeedBack = () => {
                             </div>
                             <div className="divider"></div>
                     </div>)
+                }
+                {
+                    feedback.length === 0 && <div className="h-screen flex items-center justify-center"><span className="loading loading-spinner loading-lg"></span></div>
                 }
             </div>
            
