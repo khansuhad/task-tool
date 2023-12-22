@@ -53,6 +53,9 @@ const Navbar = () => {
             <NavLink  to="/dashboard" className="block  hover:text-gray-400 py-2 px-4 cursor-pointer">
             Dashboard
             </NavLink>
+            <NavLink  to="/feedback" className="block  hover:text-gray-400 py-2 px-4 cursor-pointer">
+           FeedBack
+            </NavLink>
          
       
           </div>
@@ -67,15 +70,27 @@ const Navbar = () => {
                 user ? <div className='flex gap-2 items-center'>
               
                 <div>
-                <label  className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full">
-                    <img src={user?.photoURL} />
-                  </div>
-                </label>
+                <div className="dropdown dropdown-end">
+      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+          <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
+        </div>
+      </div>
+      <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+        <li className='px-2'>
+          <p className="overflow-hidden text-xl my-2 text-left">
+            {user?.displayName}
+            
+          </p>
+        </li>
+    
+        <li><Link  className="px-4 py-2 bg-transparent border border-primary text-primary rounded hover:bg-primary hover:text-white transition-all duration-300" onClick={handleSignOut}>Log out</Link></li>
+      </ul>
+    </div>
                 </div>
             
     <div>
-    <Link  className="px-4 py-2 bg-transparent border border-primary text-primary rounded hover:bg-primary hover:text-white transition-all duration-300" onClick={handleSignOut}>Log out</Link>
+    
     </div>
              
               </div>  :

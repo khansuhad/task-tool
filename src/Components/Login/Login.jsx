@@ -32,7 +32,7 @@ const Login = () => {
         .catch(error => {
             Swal.fire({
                 position: "top-end",
-                icon: "success",
+                icon: "error",
                 title: "email or password doesn't match",
                 showConfirmButton: false,
                 timer: 1500
@@ -57,7 +57,7 @@ const Login = () => {
         .catch(error => {
             Swal.fire({
                 position: "top-end",
-                icon: "success",
+                icon: "error",
                 title: `${error.message}`,
                 showConfirmButton: false,
                 timer: 1500
@@ -82,7 +82,7 @@ const Login = () => {
         .catch(error => {
             Swal.fire({
                 position: "top-end",
-                icon: "success",
+                icon: "error",
                 title: `${error.message}`,
                 showConfirmButton: false,
                 timer: 1500
@@ -93,7 +93,7 @@ const Login = () => {
     }
     return (
         <div>
-              <div className="bg-gray-200 flex justify-center  lg:max-h-screen py-10 lg:p-56 w-screen ">
+              <div className="bg-gray-200 flex justify-center  lg:max-h-screen py-10 lg:p-56 ">
       <div className=" border-t-8 rounded border-indigo-600 bg-white p-12 shadow-2xl w-96 h-1/2 ">
         <h1 className="font-bold text-center block text-2xl">Log In</h1>
 

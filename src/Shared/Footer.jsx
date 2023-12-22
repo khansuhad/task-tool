@@ -4,8 +4,10 @@ import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 const Footer = () => {
     return (
         <div className="bg-bgShade py-5 md:px-12 px-4 text-black">
-            <div className='flex flex-col md:flex-row md:items-center justify-between gap-8 py-3 '>
+            <div className='flex flex-col md:flex-row md:items-center  justify-between gap-8 py-3 '>
+                <div>
                 <a href="/"><img src='https://i.postimg.cc/NMxGW3Xr/Whats-App-Image-2023-12-20-at-10-06-27-PM.jpg' alt=""className='w-44 h-10' /></a>
+                </div>
                 <div className='flex flex-col md:flex-row md:items-center gap-4 flex-wrap'>
             <NavLink to='/' className="block hover:text-gray-400 py-2 px-4">
               Home

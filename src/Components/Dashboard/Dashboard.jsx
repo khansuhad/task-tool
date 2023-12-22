@@ -10,7 +10,7 @@ const Dashboard = () => {
 
             
     
-    <div className="w-[95%] mx-auto">
+    <div className="w-[95%] mx-auto py-10">
            <div className="text-primary font-semibold flex  gap-1 justify-center items-center">
         {/* admin routes */}
                 
@@ -25,7 +25,7 @@ const Dashboard = () => {
  
      
   </div>
-  <div className="flex-1">
+  <div className="flex-1 mt-5">
     <Outlet></Outlet>
 </div>
     </div>

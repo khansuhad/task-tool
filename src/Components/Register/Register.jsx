@@ -37,7 +37,7 @@ const Register = () => {
             .catch(error => {
                 Swal.fire({
                     position: "top-end",
-                    icon: "success",
+                    icon: "error",
                     title:` ${error.message}`,
                     showConfirmButton: false,
                     timer: 1500
@@ -51,7 +51,7 @@ const Register = () => {
         .catch(error =>   {
             Swal.fire({
                 position: "top-end",
-                icon: "success",
+                icon: "error",
                 title:` ${error.message}`,
                 showConfirmButton: false,
                 timer: 1500
@@ -63,7 +63,7 @@ const Register = () => {
     }
     return (
         <div>
-                <div className="bg-gray-200 flex justify-center  lg:max-h-screen py-10 lg:p-56 w-screen ">
+                <div className="bg-gray-200 flex justify-center  lg:max-h-screen py-10 lg:p-56">
       <div className=" border-t-8 rounded border-indigo-600 bg-white   p-12 shadow-2xl  w-96 lg:h-1/2">
         <h1 className="font-bold text-center block text-2xl">Create an account</h1>
         <form onSubmit={handleRegister}>

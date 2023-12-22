@@ -14,6 +14,12 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import DashboardImg from './Components/Dashboard/DashboardImg';
 import CreateNewTasks from './Components/Dashboard/CreateNewTasks/CreateNewTasks';
 import SeePrevioustaks from './Components/Dashboard/SeePreviousTasks/SeePrevioustaks';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import App from './App';
+import TodoList from './Components/Dashboard/SeePreviousTasks/Two/ToDoList';
+import TaskUpdate from './Components/Dashboard/SeePreviousTasks/TaskUpdate';
+import FeedBack from './Components/FeedBack/FeedBack';
+import CreateFeedback from './Components/FeedBack/CreateFeedback';
 
 const router = createBrowserRouter([
   {
@@ -27,21 +33,34 @@ const router = createBrowserRouter([
 
       },
       {
+        path:"/feedback",
+        element:<PrivateRoute><FeedBack/></PrivateRoute>
+      },
+      {
+        path:"/createfeedback",
+        element:<PrivateRoute><CreateFeedback/></PrivateRoute>
+      },
+      
+      {
         path:'/dashboard',
-        element:<Dashboard/>,
+        element:<PrivateRoute><Dashboard/></PrivateRoute>,
         children:
         [
           {
             path:'/dashboard',
-            element:<DashboardImg/>
+            element:<PrivateRoute><DashboardImg/></PrivateRoute>
           },
           {
             path:"/dashboard/createnewtasks",
-            element:<CreateNewTasks/>
+            element:<PrivateRoute><CreateNewTasks/></PrivateRoute>
           },
           {
             path:"/dashboard/seeprevioustasks",
-            element:<SeePrevioustaks/>
+            element:<PrivateRoute><SeePrevioustaks/></PrivateRoute>
+          },
+          {
+            path:`/dashboard/taskupdate/:id`,
+            element:<PrivateRoute><TaskUpdate/></PrivateRoute>
           }
         ]
       }
