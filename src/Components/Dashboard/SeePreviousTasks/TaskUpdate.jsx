@@ -27,8 +27,9 @@ const TaskUpdate = () => {
         formState: { errors },
       } = useForm();
       const onSubmit = (data) => {
-        console.log("clicked");
-        AxiosPublic.patch(`/newtasks/${params.id}`, data)
+        console.log(data);
+        const status = form.status ;
+        AxiosPublic.patch(`/newtasks/${params.id}`, {...data, status })
         .then(res => {
             console.log(res?.data);
            if(res?.data?.matchedCount || res?.data?.modifiedCount){
@@ -79,6 +80,7 @@ const TaskUpdate = () => {
             <textarea  {...register("description", { required: true })} defaultValue={form.description}   name="description"  className="textarea textarea-error w-full col-span-10 text-xs md:text-xl border-orange-600 border-2 outline-none" placeholder="Description"></textarea>
             {errors.priority && <h1 className=" p-2 text-red-500">This field is required*</h1>}
             </div>
+          
             <button  type="submit" className="btn btn-primary w-full mt-3">Submit</button>
             </form>
     

@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { GrUpdate } from "react-icons/gr";
 import { FaEye } from "react-icons/fa";
-import {  useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useTask from "../../../hooks/useTasks";
 
@@ -27,7 +26,7 @@ const SeePrevioustaks = () => {
       setCompleted(completed)
     },[tasks])
    
-    const navigate = useNavigate();
+  
 const handleDeleted = (id) => {
 console.log(id);
 axiosPublic.delete(`/newtasks/${id}`)
@@ -40,8 +39,8 @@ axiosPublic.delete(`/newtasks/${id}`)
         showConfirmButton: false,
         timer: 1500
       });
-
-    navigate('/dashboard')
+      refetch();
+    
 })
 
 }
